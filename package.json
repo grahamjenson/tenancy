@@ -1,6 +1,6 @@
 {
   "name": "tenancy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Very simple tenancy models",
   "url": "https://github.com/grahamjenson/tenancy",
   "main": "index.coffee",

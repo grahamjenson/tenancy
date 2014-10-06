@@ -51,10 +51,10 @@ class Tenant
       config: @config_vars()
     }
 
-Tenant.init_tenant: (knex,uuid) ->
+Tenant.init_tenant = (knex,uuid) ->
   throw "NotImplemented Tenant.init_tenant"
 
-Tenant.drop_tenant: (knex,uuid) ->
+Tenant.drop_tenant = (knex,uuid) ->
   throw "NotImplemented Tenant.drop_tenant"
 
 Tenant.create = (knex, plan, uuid = "tenant_#{new GUID().create()}") ->
