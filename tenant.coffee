@@ -50,7 +50,7 @@ class Tenant
       config: Tenant.config_vars(@)
     }
 
-Tenant.config_vars: (tenant) ->
+Tenant.config_vars = (tenant) ->
   global.TenancyConfiguration.config_vars(tenant)
 
 Tenant.init_tenant = (knex,uuid) ->
