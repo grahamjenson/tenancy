@@ -40,22 +40,24 @@ class Tenant
   get_plan: (knex) ->
     Plan.find(knex, @plan)
 
-  config_vars: ->
-    throw 'NotImplemented Error'
+
 
   resource: ->
     res = {
       id: @uuid
       plan : @plan
       message: "Welcome to the #{@plan} plan"
-      config: @config_vars()
+      config: Tenant.config_vars(@)
     }
 
+Tenant.config_vars: (tenant) ->
+  global.TenancyConfiguration.config_vars(tenant)
+
 Tenant.init_tenant = (knex,uuid) ->
-  throw "NotImplemented Tenant.init_tenant"
+  global.TenancyConfiguration.init_tenant(knex, uuid)
 
 Tenant.drop_tenant = (knex,uuid) ->
-  throw "NotImplemented Tenant.drop_tenant"
+  global.TenancyConfiguration.drop_tenant(knex, uuid)
 
 Tenant.create = (knex, plan, uuid = "tenant_#{new GUID().create()}") ->
   #TODO wrap in transaction
